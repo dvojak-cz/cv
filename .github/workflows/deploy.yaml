@@ -1,0 +1,32 @@
+name: Deploy to github pages
+
+on:
+  workflow_run:
+    workflows: ['Build pdf']
+    branches: [master]
+    types: [completed]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  publish:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download a single artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: trojak_cv_cz.pdf
+          path: public
+      - name: Download a single artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: trojak_cv_en.pdf
+          path: public
+      - uses: actions/upload-pages-artifact@v1
+        with:
+          path: public
+      - uses: actions/deploy-pages@v1
