@@ -16,6 +16,12 @@ jobs:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
+      - name: Download Artifacts from Previous Workflow
+        uses: synergy-au/download-workflow-artifacts-action@v1
+        with:
+          auth-token: ${{ secrets.GITHUB_TOKEN }}
+          workflow-run-id: ${{ github.event.workflow_run.id }}
+      - run: tree .
       - name: Download a single artifact
         uses: actions/download-artifact@v3
         with:

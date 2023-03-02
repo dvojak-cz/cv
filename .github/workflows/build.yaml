@@ -12,11 +12,12 @@ jobs:
     steps: 
       - name: Set up Git repository
         uses: actions/checkout@v3
-      - name: Compile
-        uses: dante-ev/latex-action@latest
-        with:
-          root_file: ${{ env.FILE }}
-          working_directory: ${{ env.DIR }}
+      #- name: Compile
+      #  uses: dante-ev/latex-action@latest
+      #  with:
+      #    root_file: ${{ env.FILE }}
+      #    working_directory: ${{ env.DIR }}
+      - run: echo ahoj > ${{ env.FILE }}
       - name: Upload pdf as artifact
         uses: actions/upload-artifact@v3
         with:
@@ -30,11 +31,12 @@ jobs:
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v3
-      - name: Compile
-        uses: dante-ev/latex-action@latest
-        with:
-          root_file: ${{ env.FILE }}
-          working_directory: ${{ env.DIR }}
+      #- name: Compile
+      #  uses: dante-ev/latex-action@latest
+      #  with:
+      #    root_file: ${{ env.FILE }}
+      #    working_directory: ${{ env.DIR }}
+      - run: echo ahoj > ${{ env.FILE }}
       - name: Upload pdf as artifact
         uses: actions/upload-artifact@v3
         with:
