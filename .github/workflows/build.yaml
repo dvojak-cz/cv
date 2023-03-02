@@ -21,7 +21,7 @@ jobs:
       - name: Upload pdf as artifact
         uses: actions/upload-artifact@v3
         with:
-          name: trojak_cz
+          name: trojak_cv
           path: ${{ env.DIR }}/${{ env.FILE }}.pdf
   build-en:
     env:
@@ -40,5 +40,5 @@ jobs:
       - name: Upload pdf as artifact
         uses: actions/upload-artifact@v3
         with:
-          name: trojak_cz
+          name: trojak_cv
           path: ${{ env.DIR }}/${{ env.FILE }}.pdf
