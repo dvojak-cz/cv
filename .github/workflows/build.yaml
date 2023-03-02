@@ -27,7 +27,7 @@ jobs:
       - name: Upload pdf as artifact
         uses: actions/upload-artifact@v3
         with:
-          name: ${{ env.FILE }}.pdf
+          name: trojak_${{ env.FILE }}.pdf
           path: ${{ env.DIR }}/${{ env.FILE }}.pdf
   build-en:
     env:
@@ -45,7 +45,7 @@ jobs:
       - name: Upload pdf as artifact
         uses: actions/upload-artifact@v3
         with:
-          name: ${{ env.FILE }}.pdf
+          name: trojak_${{ env.FILE }}.pdf
           path: ${{ env.DIR }}/${{ env.FILE }}.pdf
   publish:
     if: ${{ github.ref == 'refs/heads/main' }}
@@ -56,12 +56,12 @@ jobs:
       - name: Download a single artifact
         uses: actions/download-artifact@v3
         with:
-          name: cv_cz.pdf
+          name: trojak_cv_cz.pdf
           path: publish
       - name: Download a single artifact
         uses: actions/download-artifact@v3
         with:
-          name: cv_en.pdf
+          name: trojak_cv_en.pdf
           path: publish
       - uses: actions/upload-pages-artifact@v1
         with:
