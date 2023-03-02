@@ -17,7 +17,7 @@ jobs:
       #  with:
       #    root_file: ${{ env.FILE }}
       #    working_directory: ${{ env.DIR }}
-      - run: echo ahoj > ${{ env.FILE }}.pdf
+      - run: echo ahoj > src/${{ env.FILE }}.pdf
       - name: Upload pdf as artifact
         uses: actions/upload-artifact@v3
         with:
@@ -36,7 +36,7 @@ jobs:
       #  with:
       #    root_file: ${{ env.FILE }}
       #    working_directory: ${{ env.DIR }}
-      - run: echo ahoj > ${{ env.FILE }}.pdf
+      - run: echo ahoj > src/${{ env.FILE }}.pdf
       - name: Upload pdf as artifact
         uses: actions/upload-artifact@v3
         with:
