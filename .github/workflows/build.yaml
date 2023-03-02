@@ -48,7 +48,7 @@ jobs:
           name: ${{ env.FILE }}.pdf
           path: ${{ env.DIR }}/${{ env.FILE }}.pdf
   publish:
-    #if: github.ref == 'refs/heads/main'
+    if: ${{ github.ref == 'refs/heads/main' }}
     needs: [build-en, build-cz]
     runs-on: ubuntu-latest
     steps:
