@@ -53,18 +53,17 @@ jobs:
     needs: [build-en, build-cz]
     runs-on: ubuntu-latest
     steps:
-      - run: mkdir public
       - name: Download a single artifact
         uses: actions/download-artifact@v3
         with:
           name: trojak_cv_cz.pdf
-          path: publish
-      - run: ls -la ; echo ===== ; ls -la publish 
+          path: public
+      - run: ls -la public 
       - name: Download a single artifact
         uses: actions/download-artifact@v3
         with:
           name: trojak_cv_en.pdf
-          path: publish
+          path: public
       - run: echo text | tee public/cv.pdf
       - uses: actions/upload-pages-artifact@v1
         with:
