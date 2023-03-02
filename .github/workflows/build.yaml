@@ -35,6 +35,7 @@ jobs:
     env:
       DIR: src
       FILE: cv_en
+      PREFIX: trojak_
     runs-on: ubuntu-latest
     steps:
       - name: Set up Git repository
