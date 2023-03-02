@@ -1,0 +1,177 @@
+%----------------------------------------------------------------------------------------
+%	DOCUMENT DEFINITION
+%----------------------------------------------------------------------------------------
+
+% article class because we want to fully customize the page and not use a cv template
+\documentclass[a4paper,12pt]{article}
+
+%----------------------------------------------------------------------------------------
+%	FONT
+%----------------------------------------------------------------------------------------
+
+% % fontspec allows you to use TTF/OTF fonts directly
+% \usepackage{fontspec}
+% \defaultfontfeatures{Ligatures=TeX}
+
+% % modified for ShareLaTeX use
+% \setmainfont[
+% SmallCapsFont = Fontin-SmallCaps.otf,
+% BoldFont = Fontin-Bold.otf,
+% ItalicFont = Fontin-Italic.otf
+% ]
+% {Fontin.otf}
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES
+%----------------------------------------------------------------------------------------
+\usepackage{url}
+\usepackage{parskip} 	
+
+%other packages for formatting
+\RequirePackage{color}
+\RequirePackage{graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[scale=0.9]{geometry}
+
+%tabularx environment
+\usepackage{tabularx}
+
+%for lists within experience section
+\usepackage{enumitem}
+
+% centered version of 'X' col. type
+\newcolumntype{C}{>{\centering\arraybackslash}X} 
+
+%to prevent spillover of tabular into next pages
+\usepackage{supertabular}
+\usepackage{tabularx}
+\newlength{\fullcollw}
+\setlength{\fullcollw}{0.47\textwidth}
+
+%custom \section
+\usepackage{titlesec}				
+\usepackage{multicol}
+\usepackage{multirow}
+
+%CV Sections inspired by: 
+%http://stefano.italians.nl/archives/26
+\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{10pt}{10pt}
+
+%for publications
+\usepackage[style=authoryear,sorting=ynt, maxbibnames=2]{biblatex}
+
+%Setup hyperref package, and colours for links
+\usepackage[unicode, draft=false]{hyperref}
+\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour,linkcolor=linkcolour}
+\addbibresource{citations.bib}
+\setlength\bibitemsep{1em}
+
+%for social icons
+\usepackage{fontawesome5}
+
+%debug page outer frames
+%\usepackage{showframe}
+
+%----------------------------------------------------------------------------------------
+%	BEGIN DOCUMENT
+%----------------------------------------------------------------------------------------
+\begin{document}
+
+% non-numbered pages
+\pagestyle{empty} 
+
+%----------------------------------------------------------------------------------------
+%	TITLE
+%----------------------------------------------------------------------------------------
+
+% \begin{tabularx}{\linewidth}{ @{}X X@{} }
+% \huge{Your Name}\vspace{2pt} & \hfill \emoji{incoming-envelope} email@email.com \\
+% \raisebox{-0.05\height}\faGithub\ username \ | \
+% \raisebox{-0.00\height}\faLinkedin\ username \ | \ \raisebox{-0.05\height}\faGlobe \ mysite.com  & \hfill \emoji{calling} number
+% \end{tabularx}
+
+\begin{tabularx}{\linewidth}{@{} C @{}}
+\Huge{Jan Troják} \\[7.5pt]
+\href{https://github.com/dvojak-cz}{\raisebox{-0.05\height}\faGithub\ dvojak-cz} \ $|$ \ 
+\href{https://linkedin.com/in/username}{\raisebox{-0.05\height}\faLinkedin\ username} \ $|$ \ 
+\href{https://dvojak.cz/}{\raisebox{-0.05\height}\faGlobe \ dvojak.cz} \ $|$ \ 
+\href{mailto:jan@dvojak.cz}{\raisebox{-0.05\height}\faEnvelope \ jan@dvojak.cz} \ $|$ \ 
+\href{tel:+420723915634}{\raisebox{-0.05\height}\faMobile \ +420 723 915 634} \\
+\end{tabularx}
+
+%----------------------------------------------------------------------------------------
+% EXPERIENCE SECTIONS
+%----------------------------------------------------------------------------------------
+
+%Interests/ Keywords/ Summary
+\section{Úvod}
+This CV can also be automatically complied and published using GitHub Actions. For details, \href{https://github.com/jitinnair1/autoCV}{click here}.
+
+%Experience
+\section{Pracovní zkušenosti}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\textbf{cz.Micronova} & \hfill Aug 2021 - Dec 2022 \\[3.75pt]
+\multicolumn{2}{@{}X@{}}{long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width}  \\
+\end{tabularx}
+
+%Projects
+\section{Projekty}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\textbf{Matrix Calculator} & \hfill \href{https://github.com/dvojak-cz/MatrixCalculator}{GitHub} \\[3.75pt]
+\multicolumn{2}{@{}X@{}}{Interaktivní aplikace implementující maticovou kalkulačku. Aplikace umožňuje operace s maticemi a základní práci s maticemi spojené s lineární algebrou.}  \\
+\end{tabularx}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\textbf{Worker Site} & \hfill \href{https://github.com/dvojak-cz/WorkerSite}{GitHub} \\[3.75pt]
+\multicolumn{2}{@{}X@{}}{Worker Site je webová aplikace pro správu pracovních výkazů. Aplikace, slouží pro evidenci odvedené práce. Uživatel může v aplikaci spravovat své výkazy práce, může je měnit, smazat, a vytvářet.}  \\
+\end{tabularx}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\textbf{Network Clock} & \hfill \href{https://github.com/dvojak-cz/NetworkClock}{GitHub} \\[3.75pt]
+\multicolumn{2}{@{}X@{}}{Network Clock je smyšlená aplikace, která slouží jako ukázka myšlenky psaní bezbečného kódu. Aplikace si před spuštěním vyžádá nízké oprávnění pro běh, aby se při napadení minimalizovaly dopady na systém. Privilegované operace běží ve zvláštním procesu po minimalní nutnou dobu.}  \\
+\end{tabularx}
+%----------------------------------------------------------------------------------------
+%	EDUCATION
+%----------------------------------------------------------------------------------------
+\section{Vzdělání}
+\begin{tabularx}{\linewidth}{@{}l X@{}}	
+2019 - současnost & Bakalářské studium na FIT ČVUT | Bezpečnost a informační technologie \\
+\end{tabularx}
+
+%----------------------------------------------------------------------------------------
+%	PUBLICATIONS
+%----------------------------------------------------------------------------------------
+\section{Publikace}
+\begin{refsection}[citations.bib]
+\nocite{*}
+\printbibliography[heading=none]
+\end{refsection}
+
+%----------------------------------------------------------------------------------------
+%	SKILLS
+%----------------------------------------------------------------------------------------
+\section{Zkušenosti a dovednosti}
+\begin{tabularx}{\linewidth}{@{}l X@{}}
+Programování &  \normalsize{This, That, Some of this and that etc.}\\
+DevOps &  \normalsize{CI}\\
+Administrace &  \normalsize{Linux, ansible, teraform}\\
+Síťování & Linux, TCP/IP, HTTP, NGINX, IPv4, IPv6, Consul\\
+Bezpečnost & BEK, BEZ\\
+Virtualizace & KVM, Docker, Podman, Kubernetes \\
+Soft skills \\
+Jazyky & AJ, ČJ\\
+\end{tabularx}
+
+\section{Ostatní}
+\begin{tabularx}{\linewidth}{@{}l X@{}}
+Ridicak &  \normalsize{This, That, Some of this and that etc.}\\
+\end{tabularx}
+
+\vfill
+\center{\footnotesize Poslední úprava: \today}
+
+\end{document}
