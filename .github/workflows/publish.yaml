@@ -22,7 +22,7 @@ jobs:
           workflow: build.yaml
           branch: master
           workflow_conclusion: success 
-          name: ${{ env.FILE }}.pdf
+          name: cv_cz.pdf
           path: public 
       - uses: actions/upload-pages-artifact@v1
         with:
