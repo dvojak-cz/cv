@@ -1,0 +1,238 @@
+%----------------------------------------------------------------------------------------
+%	DOCUMENT DEFINITION
+%----------------------------------------------------------------------------------------
+
+% article class because we want to fully customize the page and not use a cv template
+\documentclass[a4paper,12pt]{article}
+
+%----------------------------------------------------------------------------------------
+%	FONT
+%----------------------------------------------------------------------------------------
+
+% % fontspec allows you to use TTF/OTF fonts directly
+% \usepackage{fontspec}
+% \defaultfontfeatures{Ligatures=TeX}
+
+% % modified for ShareLaTeX use
+% \setmainfont[
+% SmallCapsFont = Fontin-SmallCaps.otf,
+% BoldFont = Fontin-Bold.otf,
+% ItalicFont = Fontin-Italic.otf
+% ]
+% {Fontin.otf}
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES
+%----------------------------------------------------------------------------------------
+\usepackage{url}
+\usepackage{parskip} 	
+
+%other packages for formatting
+\RequirePackage{color}
+\RequirePackage{graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[scale=0.9]{geometry}
+
+%tabularx environment
+\usepackage{tabularx}
+
+%for lists within experience section
+\usepackage{enumitem}
+
+% centered version of 'X' col. type
+\newcolumntype{C}{>{\centering\arraybackslash}X} 
+
+%to prevent spillover of tabular into next pages
+\usepackage{supertabular}
+\usepackage{tabularx}
+\newlength{\fullcollw}
+\setlength{\fullcollw}{0.47\textwidth}
+
+%custom \section
+\usepackage{titlesec}				
+\usepackage{multicol}
+\usepackage{multirow}
+
+%CV Sections inspired by: 
+%http://stefano.italians.nl/archives/26
+\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{10pt}{10pt}
+
+%for publications
+\usepackage[]{biblatex}
+%\usepackage[style=authoryear, sorting=ynt, maxbibnames=2]{biblatex}
+
+%Setup hyperref package, and colours for links
+\usepackage[unicode, draft=false]{hyperref}
+\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour,linkcolor=linkcolour}
+\addbibresource{citations.bib}
+\setlength\bibitemsep{1em}
+
+%for social icons
+\usepackage{fontawesome5}
+
+%debug page outer frames
+%\usepackage{showframe}
+
+%----------------------------------------------------------------------------------------
+%	BEGIN DOCUMENT
+%----------------------------------------------------------------------------------------
+\begin{document}
+
+% non-numbered pages
+\pagestyle{empty} 
+
+%----------------------------------------------------------------------------------------
+%	TITLE
+%----------------------------------------------------------------------------------------
+
+% \begin{tabularx}{\linewidth}{ @{}X X@{} }
+% \huge{Your Name}\vspace{2pt} & \hfill \emoji{incoming-envelope} email@email.com \\
+% \raisebox{-0.05\height}\faGithub\ username \ | \
+% \raisebox{-0.00\height}\faLinkedin\ username \ | \ \raisebox{-0.05\height}\faGlobe \ mysite.com  & \hfill \emoji{calling} number
+% \end{tabularx}
+
+\begin{tabularx}{\linewidth}{@{} C @{}}
+\Huge{Jan Troják} \\[7.5pt]
+\href{https://github.com/dvojak-cz}{\raisebox{-0.05\height}\faGithub\ dvojak-cz} \ $|$ \ 
+\href{https://github.com/dvojak-cz}{\raisebox{-0.05\height}\faTwitter\ dvojak\_cz} \ $|$ \ 
+%\href{https://linkedin.com/in/username}{\raisebox{-0.05\height}\faLinkedin\ username} \ $|$ \ 
+%\href{https://cv.dvojak.cz/}{\raisebox{-0.05\height}\faFileInvoice \ cv.dvojak.cz} \ $|$ \ 
+\href{mailto:trojaj12@cvut.cz}{\raisebox{-0.05\height}\faEnvelope \ trojaj12@cvut.cz} \\
+\end{tabularx}
+
+%----------------------------------------------------------------------------------------
+% EXPERIENCE SECTIONS
+%----------------------------------------------------------------------------------------
+
+%Interests/ Keywords/ Summary
+%\href{https://github.com/jitinnair1/autoCV}{click here}.
+\section{About me}
+Jmenuji se Jan Troják, jsem studentem posledního ročníku bakalářského programu Fakulty informačních technologií Českého vysokého učení technického v Praze. Studuji na Katedře počítačových systémů, obor Bezpečnost a informační technologie.
+
+Mimo bezpečnost se převážně zajímám o správu a návrh IT infrastruktur. Oblasti infrastruktury a DevOps se momentálně věnuji nejvíce.
+
+%Experience
+\section{Professional experience}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\textbf{cz.Micronova} -- podpora a vývoj HIL, SIL testování & \hfill \textit{2021 - 2022} \\[3.75pt]
+\multicolumn{2}{@{}X@{}}{
+Micronova je německá společnost zabývající se převážně testováním systémů (HIL, SIL). Půl roku jsem působil v oddělení Consulting and Service, kde jsem pomáhal při HIL testovaní na straně zákazníka. Následně jsem rok pracoval v oddělení softwarového vývoje, kde jsem se podílel na vývoji HIL testování. Převážnou část jsem pracoval na integraci HIL do cloudového prostředí. Zároveň jsem byl součástí nově vzniklého DevOps týmu.
+}
+\end{tabularx}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\textbf{cz.Micronova} -- výroba a kompletace hardwaru pro testovací zařízení & \hfill \textit{2019 - 2020}\\[3.75pt]
+\multicolumn{2}{@{}X@{}}{Náplň práce byla kompletace HIL systémů. Jednalo se o příležitostnou brigádu.}
+\end{tabularx}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\textbf{Zámečnictví Solfronk} -- kovovýroba & \hfill \textit{2017 - 2020} \\
+\multicolumn{2}{@{}X@{}}{Příležitostná brigáda}
+\end{tabularx}
+
+%Projects
+\section{Projects}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\textbf{Edge Operator} & \hfill \href{https://github.com/dvojak-cz/Bachelor-Thesis}{GitHub} $|$ \href{https://bt.project.dvojak.cz/}{Doc} \\[3.75pt]
+\multicolumn{2}{@{}X@{}}{
+Kubernets operátor, který rozšiřuje možnosti síťování orchestrátoru kubernetes o adresaci zařízeních v přilehlé privátní síti clastru. Umožněná komunikace podporuje protokol TCP, UDP a protokoly z vyšších abstrakčních vrstev ISO/OSI modelu, které využívají TCP, UDP.
+}
+\end{tabularx}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\textbf{Matrix Calculator} & \hfill \href{https://github.com/dvojak-cz/MatrixCalculator}{GitHub} \\[3.75pt]
+\multicolumn{2}{@{}X@{}}{Interaktivní aplikace implementující maticovou kalkulačku. Aplikace umožňuje operace s maticemi a základní operace spojené s lineární algebrou.}\\
+\end{tabularx}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\textbf{Worker Site} & \hfill \href{https://github.com/dvojak-cz/WorkerSite}{GitHub} \\[3.75pt]
+\multicolumn{2}{@{}X@{}}{Worker Site je webová aplikace pro správu pracovních výkazů. Aplikace, slouží pro evidenci odvedené práce. Uživatel může v aplikaci spravovat své výkazy práce, může je měnit, mazat, a vytvářet. Aplikace byla navržena pro evidenci výkazů v Zámečnictví Solfronk.}\\
+\end{tabularx}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\textbf{Network Clock} & \hfill \href{https://github.com/dvojak-cz/NetworkClock}{GitHub} \\[3.75pt]
+\multicolumn{2}{@{}X@{}}{Network Clock je smyšlená aplikace, která slouží pro ukázku myšlenky psaní bezpečného kódu. Aplikace si před spuštěním vyžádá nejnižší možné oprávnění pro běh, aby se při napadení aplikace minimalizovaly dopady na systém. Privilegované operace běží ve zvláštním procesu po minimalní nutnou dobu.}  \\
+\end{tabularx}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\textbf{Advent of Code CLI} & \hfill \href{https://github.com/dvojak-cz/Advent-of-Code-CLI}{GitHub} \\[3.75pt]
+\multicolumn{2}{@{}X@{}}{
+Advent of Code CLI je jednoduchá konzolová aplikace pro \href{https://adventofcode.com/}{Advent of Code}. Umožňuje stahovat zadání, vstupy pro zadání a odevzdávat samotná řešení. 
+}
+\end{tabularx}
+
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION
+%----------------------------------------------------------------------------------------
+\section{Education}
+\begin{tabularx}{\linewidth}{@{}l X@{}}	
+2019 - současnost & Bakalářské studium na FIT ČVUT | Bezpečnost a informační technologie \\
+2015 - 2019 & Gymnázium Dr. Antona Randy, Jablonec nad Nisou
+\end{tabularx}
+
+%----------------------------------------------------------------------------------------
+%	PUBLICATIONS
+%----------------------------------------------------------------------------------------
+\section{Articles and Publications}
+\begin{refsection}[citations.bib]
+\nocite{*}
+\printbibliography[heading=none]
+\end{refsection}
+
+%----------------------------------------------------------------------------------------
+%	SKILLS
+%----------------------------------------------------------------------------------------
+
+\section{Skills}
+
+\begin{tabularx}{\linewidth}{ @{}l X }
+%--------------------------------------------------------
+\multicolumn{2}{@{}X@{}}{\textbf{Programování}}\\
+
+\texttt{C}, \texttt{C++} \rule{0pt}{3ex} &
+znalost \texttt{C++03} a \texttt{C99}, základní znalost vyšších verzí jazyka\\
+
+\texttt{.NET}, \texttt{C\#} \rule{0pt}{3ex} &
+využíváno pro vývoj backendových aplikací přvážně v \texttt{ASP.NET}, znalost \texttt{.NET 6}\\
+
+\texttt{Python} \rule{0pt}{3ex} &
+využíváno převážně pro skripty a pro automatizaci práce, základních znalost populárních balíčků (\texttt{Click}, \texttt{Numpy}, \texttt{Pandas}, \texttt{Django}, \texttt{Requests}, \texttt{Beautiful Soup})\\
+
+\texttt{Go} \rule{0pt}{3ex} &
+jednoduché programy pro automatizaci, vývoj konzolových aplikací a malých serverových aplikací \\
+%--------------------------------------------------------
+\\\multicolumn{2}{@{}X@{}}{\textbf{DevOps \& Ops}}\\
+\texttt{CI/CD} \rule{0pt}{3ex} &
+\texttt{Github Actions}, \texttt{Jenkins}, \texttt{Gitlab CI}\\
+
+Orchestrace \rule{0pt}{3ex} &
+provozování aplikací v \texttt{Kubernetes}, základní znalost spravování privátních \texttt{Kubernetes} cloudů a psaní operátorů\\
+
+Automatizace \rule{0pt}{3ex} &
+\texttt{Ansible}, \texttt{Teraform}\\
+
+Administrace \rule{0pt}{3ex} &
+\texttt{Linux}, \texttt{Unix}\\
+%--------------------------------------------------------
+\\\multicolumn{2}{@{}X@{}}{\textbf{Ostatní}}\\
+Síťování \rule{0pt}{3ex} &
+routování, znalost protokolů \texttt{TCP}, \texttt{UDP}, \texttt{IPv4}, \texttt{HTTP}, základy konfigurace \texttt{Nginx} a linuxových síťových prostředků, pokročilá znalost síťování kontejnerů a kubernetes\\
+
+Jazyky \rule{0pt}{3ex} &
+český jazyk (rodný), anglický jazyk (B2/C1)\\
+
+Řidičský průkaz \rule{0pt}{3ex} &
+skupina B\\
+\end{tabularx}
+
+
+
+\vfill
+\center{\footnotesize Poslední úprava: \today}
+
+\end{document}
