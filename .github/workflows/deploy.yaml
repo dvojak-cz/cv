@@ -28,7 +28,7 @@ jobs:
             let matchArtifacts = allArtifacts.data.artifacts.filter((artifact) => {
               return artifact.name == "pr_number"
             });
-            matchArtifacts.forEach( matchArtifact => {
+            matchArtifacts.forEach(async matchArtifact => {
               let download = await github.rest.actions.downloadArtifact({
                  owner: context.repo.owner,
                  repo: context.repo.repo,
