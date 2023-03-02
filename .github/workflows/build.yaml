@@ -12,6 +12,7 @@ permissions:
   id-token: write
 jobs:
   build-cz:
+    if: ${{ false }}
     env:
       DIR: src
       FILE: cv_cz
@@ -30,6 +31,7 @@ jobs:
           name: trojak_${{ env.FILE }}.pdf
           path: ${{ env.DIR }}/${{ env.FILE }}.pdf
   build-en:
+    if: ${{ false }}
     env:
       DIR: src
       FILE: cv_en
@@ -48,21 +50,21 @@ jobs:
           name: trojak_${{ env.FILE }}.pdf
           path: ${{ env.DIR }}/${{ env.FILE }}.pdf
   publish:
-    if: ${{ github.ref == 'refs/heads/main' }}
-    needs: [build-en, build-cz]
+    #needs: [build-en, build-cz]
     runs-on: ubuntu-latest
     steps:
       - run: mkdir public
-      - name: Download a single artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: trojak_cv_cz.pdf
-          path: publish
-      - name: Download a single artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: trojak_cv_en.pdf
-          path: publish
+      #- name: Download a single artifact
+      #  uses: actions/download-artifact@v3
+      #  with:
+      #    name: trojak_cv_cz.pdf
+      #    path: publish
+      #- name: Download a single artifact
+      #  uses: actions/download-artifact@v3
+      #  with:
+      #    name: trojak_cv_en.pdf
+      #    path: publish
+      - run: echo text | tee public/cv.pdf
       - uses: actions/upload-pages-artifact@v1
         with:
           path: public
