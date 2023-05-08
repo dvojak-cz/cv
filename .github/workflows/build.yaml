@@ -5,40 +5,22 @@ on:
   workflow_dispatch:
 jobs:
   build-cz:
+    runs-on: ubuntu-latest
     env:
       DIR: src
-      FILE: trojak_cv_cz
-    runs-on: ubuntu-latest
-    steps: 
-      - name: Set up Git repository
-        uses: actions/checkout@v3
-      #- name: Compile
-      #  uses: dante-ev/latex-action@latest
-      #  with:
-      #    root_file: ${{ env.FILE }}
-      #    working_directory: ${{ env.DIR }}
-      - run: echo ahoj > src/${{ env.FILE }}.pdf
-      - name: Upload pdf as artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: trojak_cv
-          path: ${{ env.DIR }}/${{ env.FILE }}.pdf
-  build-en:
-    env:
-      DIR: src
-      FILE: trojak_cv_en
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        file: [trojaj_cv_en.tex, trojak_cv_cz.tex]
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v3
-      #- name: Compile
-      #  uses: dante-ev/latex-action@latest
-      #  with:
-      #    root_file: ${{ env.FILE }}
-      #    working_directory: ${{ env.DIR }}
-      - run: echo ahoj > src/${{ env.FILE }}.pdf
+      - name: Compile
+        uses: dante-ev/latex-action@latest
+        with:
+          root_file: ${{ matrix.file }}
+          working_directory: ${{ env.DIR }}
       - name: Upload pdf as artifact
         uses: actions/upload-artifact@v3
         with:
           name: trojak_cv
-          path: ${{ env.DIR }}/${{ env.FILE }}.pdf
+          path: ${{ env.DIR }}/${{ matrix.file }}.pdf
