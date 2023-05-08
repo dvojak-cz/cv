@@ -1,10 +1,10 @@
 name: Deploy to github pages
 
 on:
-  workflow_run:
-    workflows: ['Build pdf']
-    branches: [master]
-    types: [completed]
+  push:
+    branches:
+      - master
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -12,44 +12,28 @@ permissions:
   id-token: write
 
 jobs:
-  publish:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+  call-pdf-build:
+    uses: ./.github/workflows/build.yaml
+  build-index-page:
     runs-on: ubuntu-latest
     steps:
-      - name: 'Download artifact'
-        uses: actions/github-script@v6
+      - name: Build Index page
+        uses: jaywcjlove/markdown-to-html-cli@main
         with:
-          script: |
-            let allArtifacts = await github.rest.actions.listWorkflowRunArtifacts({
-               owner: context.repo.owner,
-               repo: context.repo.repo,
-               run_id: context.payload.workflow_run.id,
-            });
-            let matchArtifact = allArtifacts.data.artifacts.filter((artifact) => {
-              return artifact.name == "trojak_cv"
-            })[0];
-            let download = await github.rest.actions.downloadArtifact({
-               owner: context.repo.owner,
-               repo: context.repo.repo,
-               artifact_id: matchArtifact.id,
-               archive_format: 'zip',
-            });
-            let fs = require('fs');
-            fs.writeFileSync(`${process.env.GITHUB_WORKSPACE}/pr_number.zip`, Buffer.from(download.data));
-      - run: tree .
-      - name: 'Unzip artifact'
-        run: unzip pr_number.zip
-      - name: Download a single artifact
+          source: README.md
+          output: public/index.html
+  publish:
+    needs: ['call-pdf-build','build-index-page']
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download pdf-build artifact
         uses: actions/download-artifact@v3
         with:
-          name: trojak_cv_cz.pdf
-          path: public
-      - name: Download a single artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: trojak_cv_en.pdf
-          path: public
-      - uses: actions/upload-pages-artifact@v1
+          name: trojak_cv
+          path: public/
+      - name: upload page artifact
+        uses: actions/upload-pages-artifact@v1
         with:
           path: public
-      - uses: actions/deploy-pages@v1
+      - name: Deploy to github pages
+        uses: actions/deploy-pages@v1
