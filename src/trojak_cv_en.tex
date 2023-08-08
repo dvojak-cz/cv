@@ -59,7 +59,7 @@
 \titlespacing{\section}{0pt}{10pt}{10pt}
 
 %for publications
-\usepackage[]{biblatex}
+\usepackage[style=iso-numeric]{biblatex}
 %\usepackage[style=authoryear, sorting=ynt, maxbibnames=2]{biblatex}
 
 %Setup hyperref package, and colours for links
@@ -99,7 +99,8 @@
 \href{https://github.com/dvojak-cz}{\raisebox{-0.05\height}\faTwitter\ dvojak\_cz} \ $|$ \ 
 %\href{https://linkedin.com/in/username}{\raisebox{-0.05\height}\faLinkedin\ username} \ $|$ \ 
 %\href{https://cv.dvojak.cz/}{\raisebox{-0.05\height}\faFileInvoice \ cv.dvojak.cz} \ $|$ \ 
-\href{mailto:trojaj12@cvut.cz}{\raisebox{-0.05\height}\faEnvelope \ trojaj12@cvut.cz} \\
+\href{mailto:trojaj12@cvut.cz}{\raisebox{-0.05\height}\faEnvelope \ trojaj12@cvut.cz} \ $|$ \ 
+\href{tel:+420723915634}{\raisebox{-0.05\height}\faMobile \ +420 723 915 634} \\
 \end{tabularx}
 
 %----------------------------------------------------------------------------------------
@@ -109,9 +110,9 @@
 %Interests/ Keywords/ Summary
 %\href{https://github.com/jitinnair1/autoCV}{click here}.
 \section{About me}
-Jmenuji se Jan Troják, jsem studentem posledního ročníku bakalářského programu Fakulty informačních technologií Českého vysokého učení technického v Praze. Studuji na Katedře počítačových systémů, obor Bezpečnost a informační technologie.
+Jmenuji se Jan Troják, jsem studentem prvního ročníku magisterského programu Fakulty informačních technologií Českého vysokého učení technického v Praze. Studuji na Katedře počítačových systémů, specializaci Počítačové systémy a sítě. V bakalářském programu jsem studoval specializaci Bezpečnost a informační technologie. 
 
-Mimo bezpečnost se převážně zajímám o správu a návrh IT infrastruktur. Oblasti infrastruktury a DevOps se momentálně věnuji nejvíce.
+Převážně se zajímám o oblast DevOps.
 
 %Experience
 \section{Professional experience}
@@ -158,12 +159,12 @@ Kubernets operátor, který rozšiřuje možnosti síťování orchestrátoru ku
 \multicolumn{2}{@{}X@{}}{Network Clock je smyšlená aplikace, která slouží pro ukázku myšlenky psaní bezpečného kódu. Aplikace si před spuštěním vyžádá nejnižší možné oprávnění pro běh, aby se při napadení aplikace minimalizovaly dopady na systém. Privilegované operace běží ve zvláštním procesu po minimalní nutnou dobu.}  \\
 \end{tabularx}
 
-\begin{tabularx}{\linewidth}{ @{}l r@{} }
-\textbf{Advent of Code CLI} & \hfill \href{https://github.com/dvojak-cz/Advent-of-Code-CLI}{GitHub} \\[3.75pt]
-\multicolumn{2}{@{}X@{}}{
-Advent of Code CLI je jednoduchá konzolová aplikace pro \href{https://adventofcode.com/}{Advent of Code}. Umožňuje stahovat zadání, vstupy pro zadání a odevzdávat samotná řešení. 
-}
-\end{tabularx}
+%\begin{tabularx}{\linewidth}{ @{}l r@{} }
+%\textbf{Advent of Code CLI} & \hfill \href{https://github.com/dvojak-cz/Advent-of-Code-CLI}{GitHub} \\%[3.75pt]
+%\multicolumn{2}{@{}X@{}}{
+%Advent of Code CLI je jednoduchá konzolová aplikace pro \href{https://adventofcode.com/}{Advent of Code}. Umožňuje stahovat zadání, vstupy pro zadání a odevzdávat samotná řešení. 
+%}
+%\end{tabularx}
 
 
 %----------------------------------------------------------------------------------------
@@ -171,8 +172,8 @@ Advent of Code CLI je jednoduchá konzolová aplikace pro \href{https://adventof
 %----------------------------------------------------------------------------------------
 \section{Education}
 \begin{tabularx}{\linewidth}{@{}l X@{}}	
-2019 - současnost & Bakalářské studium na FIT ČVUT | Bezpečnost a informační technologie \\
-2015 - 2019 & Gymnázium Dr. Antona Randy, Jablonec nad Nisou
+2019 - 2023 & Bakalářské studium na FIT ČVUT | Bezpečnost a informační technologie \\
+2023 - současnost & Magisterské studium na FIT ČVUT | Počítačové systémy a sítě
 \end{tabularx}
 
 %----------------------------------------------------------------------------------------
@@ -216,10 +217,19 @@ provozování aplikací v \texttt{Kubernetes}, základní znalost spravování p
 Automatizace \rule{0pt}{3ex} &
 \texttt{Ansible}, \texttt{Teraform}\\
 
-Administrace \rule{0pt}{3ex} &
-\texttt{Linux}, \texttt{Unix}\\
+Linux, Unix \rule{0pt}{3ex} &
+základy administrace, \texttt{systemd}, \texttt{cgroups}, \texttt{namespaces}..., základy administrace \texttt{Solarisu}\\
+
+Virtualizace \rule{0pt}{3ex} &
+aplikační kontejnery, emulace (základy KVM,QEMU)\\
 %--------------------------------------------------------
 \\\multicolumn{2}{@{}X@{}}{\textbf{Ostatní}}\\
+Databáze \rule{0pt}{3ex} &
+zkušenosti s \texttt{oracle} a \texttt{postgres}, pokročilé \textttt{DQL SQL}, základy psaní procedur v \texttt{oracle} a \texttt{postgres} \\
+
+Bezpečnost \rule{0pt}{3ex} &
+základní znalost standardu \textttt{ISO X.800} a věcí s ním spojené, znalost principů pro psaní bezpečnostních kódů, znalost používaných kryptosystémů \\
+
 Síťování \rule{0pt}{3ex} &
 routování, znalost protokolů \texttt{TCP}, \texttt{UDP}, \texttt{IPv4}, \texttt{HTTP}, základy konfigurace \texttt{Nginx} a linuxových síťových prostředků, pokročilá znalost síťování kontejnerů a kubernetes\\
 
